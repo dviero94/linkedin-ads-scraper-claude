@@ -1,0 +1,43 @@
+{
+    "title": "Input schema for LinkedIn Ads Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "csvUrl": {
+            "title": "URL del file CSV",
+            "type": "string",
+            "description": "URL al file CSV contenente l'elenco delle aziende da monitorare (una per riga)",
+            "editor": "textfield"
+        },
+        "maxConcurrency": {
+            "title": "Concorrenza massima",
+            "type": "integer",
+            "description": "Numero massimo di pagine da elaborare contemporaneamente",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 50,
+            "editor": "numeric"
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Numero massimo di richieste",
+            "type": "integer",
+            "description": "Numero massimo di URL da elaborare in totale",
+            "default": 1000,
+            "minimum": 1,
+            "editor": "numeric"
+        },
+        "proxyConfiguration": {
+            "title": "Configurazione Proxy",
+            "type": "object",
+            "description": "Specifica quale proxy utilizzare per le richieste",
+            "default": {
+                "useApifyProxy": true
+            },
+            "prefill": {
+                "useApifyProxy": true
+            },
+            "editor": "proxy"
+        }
+    },
+    "required": ["csvUrl"]
+}
